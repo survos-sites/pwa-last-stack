@@ -10,7 +10,7 @@
         "dokku": {
             "predeploy": "bin/console tailwind:build && bin\/console importmap:install && bin\/console asset-map:compile",
             "postdeploy": ""
-        },
+        }
     },
     "env": {
         "SECRET_TOKEN": {
