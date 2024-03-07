@@ -15,11 +15,6 @@ class Voyage
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne]
-    #[ORM\JoinColumn(nullable: false)]
-    #[NotBlank]
-    private ?Planet $planet = null;
-
     #[ORM\Column(length: 255)]
     #[NotBlank]
     #[Length(min: 3, max: 255)]
@@ -32,6 +27,10 @@ class Voyage
     #[NotBlank]
     private ?\DateTimeImmutable $leaveAt;
 
+    #[ORM\ManyToOne(inversedBy: 'voyages')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Planet $planet = null;
+
     public function __construct()
     {
         $this->leaveAt = new \DateTimeImmutable('+1 month');
@@ -40,18 +39,6 @@ class Voyage
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getPlanet(): ?Planet
-    {
-        return $this->planet;
-    }
-
-    public function setPlanet(?Planet $planet): static
-    {
-        $this->planet = $planet;
-
-        return $this;
     }
 
     public function getPurpose(): ?string
@@ -86,6 +73,18 @@ class Voyage
     public function setWormholeUpgrade(?bool $wormholeUpgrade): self
     {
         $this->wormholeUpgrade = (bool) $wormholeUpgrade;
+
+        return $this;
+    }
+
+    public function getPlanet(): ?Planet
+    {
+        return $this->planet;
+    }
+
+    public function setPlanet(?Planet $planet): static
+    {
+        $this->planet = $planet;
 
         return $this;
     }

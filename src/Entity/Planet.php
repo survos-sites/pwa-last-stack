@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PlanetRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints\GreaterThanOrEqual;
@@ -12,9 +14,14 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 class Planet
 {
     #[ORM\Id]
-    #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
+
+    public function setId(?int $id): self
+    {
+        $this->id = $id;
+        return $this;
+    }
 
     #[ORM\Column(length: 255)]
     #[NotBlank]
@@ -35,6 +42,14 @@ class Planet
 
     #[ORM\Column]
     private bool $isInMilkyWay = true;
+
+    #[ORM\OneToMany(mappedBy: 'planet', targetEntity: Voyage::class, orphanRemoval: true)]
+    private Collection $voyages;
+
+    public function __construct()
+    {
+        $this->voyages = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -97,6 +112,41 @@ class Planet
     public function setIsInMilkyWay(bool $isInMilkyWay): self
     {
         $this->isInMilkyWay = $isInMilkyWay;
+
+        return $this;
+    }
+
+    public function getVoyageCount(): int
+    {
+        return $this->getVoyages()->count();
+    }
+
+    /**
+     * @return Collection<int, Voyage>
+     */
+    public function getVoyages(): Collection
+    {
+        return $this->voyages;
+    }
+
+    public function addVoyage(Voyage $voyage): static
+    {
+        if (!$this->voyages->contains($voyage)) {
+            $this->voyages->add($voyage);
+            $voyage->setPlanet($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVoyage(Voyage $voyage): static
+    {
+        if ($this->voyages->removeElement($voyage)) {
+            // set the owning side to null (unless already changed)
+            if ($voyage->getPlanet() === $this) {
+                $voyage->setPlanet(null);
+            }
+        }
 
         return $this;
     }

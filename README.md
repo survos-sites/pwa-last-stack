@@ -1,3 +1,7 @@
+# Last Stack PWA
+
+SymfonyCasts LAST stack app, as a PWA
+
 # 30 Days with LAST Stack
 
 Well hi there! This repository holds the code and script for the

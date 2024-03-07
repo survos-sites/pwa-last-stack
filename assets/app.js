@@ -18,6 +18,9 @@ document.addEventListener('turbo:before-render', (event) => {
     }
 });
 
+// there's probably a stimulus way to do this...
+
+
 document.addEventListener('turbo:load', () => {
     // View Transitions don't play nicely with Turbo cache
     // if (shouldPerformTransition()) Turbo.cache.exemptPageFromCache();

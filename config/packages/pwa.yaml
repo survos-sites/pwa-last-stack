@@ -1,0 +1,42 @@
+pwa:
+    image_processor: 'pwa.image_processor.imagick'
+    manifest:
+        enabled: true
+        background_color: "#c026d3"
+        theme_color: "#c026d3"
+        name: 'LAST Stack PWA'
+        short_name: 'pwa-last-stack'
+        description: 'SymfonyCasts LAST Stack app, as a PWA'
+        orientation: "any"
+        display: "standalone"
+        scope: "/"
+        display_override: ['fullscreen', 'minimal-ui', 'window-controls-overlay']
+        id: "/"
+        start_url: "./"
+        icons:
+            # https://www.veryicon.com/icons/miscellaneous/smart-site/noise-3.html
+            - src: "images/logo.png"
+              sizes: "any"
+
+        screenshots:
+            - src: /screenshots/screenshot-1200x1100.png
+              width: 1200
+              height: 1100
+              format: image/png
+        categories: []
+        shortcuts: []
+        edge_side_panel:
+            preferred_width: 280
+        widgets: []
+    serviceworker:
+        enabled: true
+        src: "sw.js"
+        skip_waiting: true
+        workbox:
+            warm_cache_urls:
+                - 'app_homepage'
+                - 'app_voyage_index'
+                - 'app_planet_index'
+#                - 'app_about'
+            page_fallback: 'app_homepage'
+            static_regex: '/\.(css|js|json|xml|txt|mp3|map|webmanifest)$/'

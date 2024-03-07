@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="turbo-cache-control" content="no-cache">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}Space Inviters!{% endblock %}</title>
         {% if app.environment != 'test' %}
@@ -14,8 +15,10 @@
         {% block javascripts %}
             {{ importmap('app') }}
         {% endblock %}
+        {{ pwa() }}
     </head>
-    <body class="bg-black text-white font-mono">
+    <body
+            data-turbo="false" class="bg-black text-white font-mono">
         <div class="container mx-auto min-h-screen flex flex-col">
             <header class="my-8 px-4">
                 <nav class="flex items-center justify-between mb-4">
@@ -30,6 +33,20 @@
                         <a href="{{ path('app_homepage') }}" class="text-xl ml-3">Space Inviters</a>
                         <a href="{{ path('app_voyage_index') }}" class="ml-6 hover:text-gray-400">Voyages</a>
                         <a href="{{ path('app_planet_index') }}" class="ml-4 hover:text-gray-400">Planets</a>
+                        &nbsp;
+                        {% set _sc='@pwa/connection-status' %}
+                        <div {{ stimulus_controller(_sc, {
+                            onlineMessage: '<i class="text-green-600">online</i>',
+                            offlineMessage: '<i class="text-red-600">offline</i>',
+                        }) }}>
+                            <div {{ stimulus_target(_sc, 'message') }}
+                                    {{ stimulus_target(_sc, 'attributes') }}
+                            >
+                                checking connection status...
+                            </div>
+                        </div>
+
+
                     </div>
                     <twig:Modal
                         :closeButton="true"
