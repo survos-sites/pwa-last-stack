@@ -8,9 +8,9 @@
     "repository": "https:\/\/github.com\/survos-sites\/pwa-last-stack",
     "scripts": {
         "dokku": {
-            "predeploy": "bin\/console importmap:install && bin\/console asset-map:compile",
+            "predeploy": "bin/console tailwind:build && bin\/console importmap:install && bin\/console asset-map:compile",
             "postdeploy": ""
-        }
+        },
     },
     "env": {
         "SECRET_TOKEN": {
