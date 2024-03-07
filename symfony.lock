@@ -64,6 +64,9 @@
     "survos/core-bundle": {
         "version": "1.5.176"
     },
+    "survos/deployment-bundle": {
+        "version": "1.5.177"
+    },
     "survos/pwa-extra-bundle": {
         "version": "1.5.165"
     },
