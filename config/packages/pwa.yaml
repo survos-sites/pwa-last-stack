@@ -34,9 +34,11 @@ pwa:
         skip_waiting: true
         workbox:
             warm_cache_urls:
-                - {path: "planet_show", params: [id: 1]}
-                - {path: "planet_show", params: [id: 2]}
-                - {path: "planet_show", params: [id: 3]}
+                - {path: "app_planet_show", params: {id: 1}}
+                - {path: "app_planet_show", params: {id: 2}}
+                - {path: "app_planet_show", params: {id: 3}}
+                - {path: "app_planet_show", params: {id: 4}}
+                - {path: "app_planet_show", params: {id: 5}}
                 - 'app_homepage'
                 - 'app_voyage_index'
                 - 'app_planet_index'
