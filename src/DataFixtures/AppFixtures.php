@@ -49,12 +49,15 @@ class AppFixtures extends Fixture
 
         $purposes = [
             'occupy',
+            'bring democracy',
+            'setup the first Starbucks',
+            'build hotels',
             'do air quality studies',
             'do agricultural research',
             'recruit workers',
             'discard nuclear waste'
         ];
-        VoyageFactory::createMany(30, function () use ($planets, $purposes) {
+        VoyageFactory::createMany(60, function () use ($planets, $purposes) {
             $planet = $planets[array_rand($planets)];
             return [
                 'planet' => $planet,
