@@ -47,6 +47,20 @@
                             >
                                 checking connection status...
                             </div>
+
+                            <twig:PwaInstall>
+                                <twig:block name="launch">
+                                    Lauch button here...
+                                </twig:block>
+                                <twig:block name="install">
+                                    <twig:Button variant="success">
+                                        Install as PWA
+                                    </twig:Button>
+
+                                </twig:block>
+                            </twig:PwaInstall>
+
+
                         </div>
 
 {#                        <twig:ConnectionDetector>#}
