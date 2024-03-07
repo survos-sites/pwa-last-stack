@@ -1,6 +1,9 @@
 twig:
     default_path: '%kernel.project_dir%/templates'
     form_themes: ['@TalesFromADevFlowbite/form/default.html.twig']
+    globals:
+      _toggle_online: '@@survos/pwa-extra-bundle/toggle_online'
+
 
 when@test:
     twig:

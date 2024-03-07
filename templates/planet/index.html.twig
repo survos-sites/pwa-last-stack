@@ -3,21 +3,11 @@
 {% block title %}Manage Planets{% endblock %}
 
 {% block body %}
-    <twig:ConnectionDetector>
-        <twig:block name="online">
-            ONLINE!
-        </twig:block>
-        <twig:block name="offline">
-            offline!
-        </twig:block>
-    </twig:ConnectionDetector>
 <div class="m-4 p-4 bg-gray-800 rounded-lg">
     <h1 class="text-xl font-semibold text-white mb-4">Planets</h1>
 
-    {% set _toggle_online = '@survos/pwa-extra-bundle/toggle_online' %}
 
     <table
-            {{ stimulus_controller(_toggle_online) }}
             class="min-w-full bg-gray-800 text-white">
         <thead class="border-b border-gray-700">
             <tr>
@@ -36,12 +26,12 @@
                 <td class="px-6 py-4 whitespace-nowrap">{{ planet.id }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">{{ planet.name }}</td>
                 <td class="px-6 py-4">{{ planet.description }}</td>
-                <td class="px-6 py-4 whitespace-nowrap float-right">{{ planet.lightYearsFromEarth|number_format(1) }}</td>
+                <td class="px-6 py-4 whitespace-nowrap float-right">{{ planet.lightYearsFromEarth }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">
                     <a
                             href="{{ path('app_planet_show', {'id': planet.id}) }}" class="text-blue-400 hover:text-blue-600">show</a>
 
-                    <a
+                    <a id="planet-{{ planet.id }}-edit"
                             {{ stimulus_target(_toggle_online, 'online') }}
                             href="{{ path('app_planet_edit', {'id': planet.id}) }}" class="ml-4 text-yellow-400 hover:text-yellow-600">edit</a>
                 </td>

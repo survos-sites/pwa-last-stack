@@ -33,6 +33,15 @@
             </tbody>
         </table>
 
+        <ul>
+        {% for voyage in planet.voyages %}
+            <li>
+                {{ voyage.purpose }}
+                {{ include('voyage/_leave_at.twig') }}
+            </li>
+        {% endfor %}
+        </ul>
+
         <div class="mt-2 hidden turbo-frame:block" >
             <a href="{{ path('app_homepage') }}">&lt;-- Back</a>
 

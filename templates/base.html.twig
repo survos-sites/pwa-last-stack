@@ -18,6 +18,8 @@
         {{ pwa() }}
     </head>
     <body
+            {{ stimulus_controller(_toggle_online) }}
+
             data-turbo="false" class="bg-black text-white font-mono">
         <div class="container mx-auto min-h-screen flex flex-col">
             <header class="my-8 px-4">
@@ -34,6 +36,7 @@
                         <a href="{{ path('app_voyage_index') }}" class="ml-6 hover:text-gray-400">Voyages</a>
                         <a href="{{ path('app_planet_index') }}" class="ml-4 hover:text-gray-400">Planets</a>
                         &nbsp;
+
                         {% set _sc='@pwa/connection-status' %}
                         <div {{ stimulus_controller(_sc, {
                             onlineMessage: '<i class="text-green-600">online</i>',
@@ -45,6 +48,16 @@
                                 checking connection status...
                             </div>
                         </div>
+
+{#                        <twig:ConnectionDetector>#}
+{#                            <twig:block name="online">#}
+{#                                onlineIcon#}
+{#                            </twig:block>#}
+{#                            <twig:block name="offline">#}
+{#                                offlineIcon#}
+{#                            </twig:block>#}
+{#                        </twig:ConnectionDetector>#}
+
 
 
                     </div>

@@ -1,0 +1,8 @@
+<time data-controller="timeago"
+      title="{{ voyage.leaveAt ? voyage.leaveAt|date('Y-m-d H:i:s') : '' }}"
+      data-timeago-add-suffix-value="true"
+      data-timeago-include-seconds-value="true"
+      data-timeago-refresh-interval-value="1000"
+      data-timeago-datetime-value="{{ voyage.leaveAt|date('c') }}">
+            {{ voyage.leaveAt ? voyage.leaveAt|date('Y-m-d H:i:s') : '' }}
+</time>

@@ -1,10 +1,15 @@
 <tr class="even:bg-gray-700 odd:bg-gray-600" id="voyage-list-item-{{ voyage.id }}">
     <td class="px-6 py-4 whitespace-nowrap">{{ voyage.id }}</td>
     <td class="px-6 py-4">{{ voyage.purpose }}</td>
-    <td class="px-6 py-4 whitespace-nowrap">{{ voyage.leaveAt ? voyage.leaveAt|date('Y-m-d H:i:s') : '' }}</td>
+    <td class="px-6 py-4 whitespace-nowrap">
+        {% if voyage.leaveAt %}
+            {{ include('voyage/_leave_at.twig') }}
+        {% endif %}
+    </td>
     <td class="px-6 py-4 whitespace-nowrap flex">
         <a href="{{ path('app_voyage_show', {'id': voyage.id}) }}" class="text-blue-400 hover:text-blue-600">show</a>
         <a
+                {{ stimulus_target(_toggle_online, 'online') }}
             href="{{ path('app_voyage_edit', {'id': voyage.id}) }}"
             class="ml-4 text-yellow-400 hover:text-yellow-600"
             data-turbo-frame="modal"
@@ -13,6 +18,7 @@
         <twig:Modal :allowSmallWidth="true">
             <twig:block name="trigger">
                 <button
+                        {{ stimulus_target(_toggle_online, 'online') }}
                     class="ml-4 text-red-400 hover:text-red-600"
                     data-action="modal#open"
                 >delete</button>
