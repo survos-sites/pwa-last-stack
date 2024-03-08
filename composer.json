@@ -17,6 +17,7 @@
         "league/commonmark": "^2.4",
         "pagerfanta/doctrine-orm-adapter": "^4.0",
         "pagerfanta/twig": "^4.0",
+        "sentry/sentry-symfony": "^4.14",
         "spomky-labs/pwa-bundle": "^1.1",
         "survos/pwa-extra-bundle": "^1.5.175",
         "symfony/asset": "^7.0",
