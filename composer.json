@@ -13,6 +13,7 @@
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.16",
         "knplabs/knp-time-bundle": "dev-main",
+        "league/commonmark": "^2.4",
         "pagerfanta/doctrine-orm-adapter": "^4.0",
         "pagerfanta/twig": "^4.0",
         "spomky-labs/pwa-bundle": "^1.1",
@@ -41,6 +42,7 @@
         "symfonycasts/tailwind-bundle": "dev-main",
         "tales-from-a-dev/flowbite-bundle": "dev-main",
         "twig/extra-bundle": "^2.12|^3.0",
+        "twig/markdown-extra": "^3.8",
         "twig/twig": "^2.12|^3.0"
     },
     "config": {
@@ -95,7 +97,7 @@
         }
     },
     "require-dev": {
-        "doctrine/doctrine-fixtures-bundle": "^3.4",
+        "doctrine/doctrine-fixtures-bundle": "^3.5",
         "phpunit/phpunit": "^9.5",
         "symfony/browser-kit": "^7.0",
         "symfony/css-selector": "^7.0",

@@ -6,6 +6,7 @@ use App\Repository\PlanetRepository;
 use App\Repository\VoyageRepository;
 use Pagerfanta\Doctrine\ORM\QueryAdapter;
 use Pagerfanta\Pagerfanta;
+use Symfony\Bridge\Twig\Attribute\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -41,4 +42,13 @@ class MainController extends AbstractController
             'sortDirection' => $sortDirection,
         ]);
     }
+
+    #[Route('/about', name: 'app_about')]
+    #[Template('main/about.html.twig')]
+    public function about(): array
+    {
+        return [];
+    }
+
+
 }

@@ -17,6 +17,8 @@ pwa:
             # https://www.veryicon.com/icons/miscellaneous/smart-site/noise-3.html
             - src: "images/logo.png"
               sizes: [32, 48, 72, 96, 120, 128, 144, 180, 192, 256, 384, 512]
+#            - src: "images/space-planet-icon.svg"
+#              sizes: any
 
         screenshots:
             - src: screenshots/screenshot-1200x1100.png
