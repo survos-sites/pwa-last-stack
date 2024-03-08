@@ -5,10 +5,10 @@
         "php",
         "symfony"
     ],
-    "repository": "https:\/\/github.com\/survos-sites\/pwa-last-stack",
+    "repository": "https://github.com/survos-sites/pwa-last-stack",
     "scripts": {
         "dokku": {
-            "predeploy": "bin/console tailwind:build && bin\/console importmap:install && bin\/console asset-map:compile",
+            "predeploy": "bin/console importmap:install && bin/console asset-map:compile",
             "postdeploy": ""
         }
     },
@@ -22,14 +22,14 @@
             "generator": "echo 5"
         }
     },
-    "image": "gliderlabs\/herokuish",
+    "image": "gliderlabs/herokuish",
     "addons": [
         "dokku-postgres",
         "dokku-redis"
     ],
     "buildpacks": [
         {
-            "url": "https:\/\/github.com\/heroku\/heroku-buildpack-php.git"
+            "url": "https://github.com/heroku/heroku-buildpack-php.git"
         }
     ]
 }
