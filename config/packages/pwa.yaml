@@ -12,14 +12,14 @@ pwa:
         scope: "/"
         display_override: ['fullscreen', 'minimal-ui', 'window-controls-overlay']
         id: "/"
-        start_url: "./"
+        start_url: "/"
         icons:
             # https://www.veryicon.com/icons/miscellaneous/smart-site/noise-3.html
             - src: "images/logo.png"
-              sizes: "any"
+              sizes: [32, 48, 72, 96, 120, 128, 144, 180, 192, 256, 384, 512]
 
         screenshots:
-            - src: /screenshots/screenshot-1200x1100.png
+            - src: screenshots/screenshot-1200x1100.png
               width: 1200
               height: 1100
               format: image/png
@@ -33,15 +33,16 @@ pwa:
         src: "sw.js"
         skip_waiting: true
         workbox:
-            warm_cache_urls:
-                - {path: "app_planet_show", params: {id: 1}}
-                - {path: "app_planet_show", params: {id: 2}}
-                - {path: "app_planet_show", params: {id: 3}}
-                - {path: "app_planet_show", params: {id: 4}}
-                - {path: "app_planet_show", params: {id: 5}}
-                - 'app_homepage'
-                - 'app_voyage_index'
-                - 'app_planet_index'
-#                - 'app_about'
-            page_fallback: 'app_homepage'
-            static_regex: '/\.(css|js|json|xml|txt|mp3|map|webmanifest)$/'
+            page_cache:
+                urls:
+                    - {path: "app_planet_show", params: {id: 1}}
+                    - {path: "app_planet_show", params: {id: 2}}
+                    - {path: "app_planet_show", params: {id: 3}}
+                    - {path: "app_planet_show", params: {id: 4}}
+                    - {path: "app_planet_show", params: {id: 5}}
+                    - 'app_homepage'
+                    - 'app_voyage_index'
+                    - 'app_planet_index'
+#                    - 'app_about'
+            offline_fallback:
+                page: 'app_homepage'
