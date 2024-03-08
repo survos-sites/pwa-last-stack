@@ -6,6 +6,8 @@ use App\Repository\PlanetRepository;
 use App\Repository\VoyageRepository;
 use Pagerfanta\Doctrine\ORM\QueryAdapter;
 use Pagerfanta\Pagerfanta;
+use Survos\PwaExtraBundle\Attribute\PwaExtra;
+use Survos\PwaExtraBundle\Service\PwaService;
 use Symfony\Bridge\Twig\Attribute\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -45,6 +47,7 @@ class MainController extends AbstractController
 
     #[Route('/about', name: 'app_about')]
     #[Template('main/about.html.twig')]
+    #[PwaExtra(cacheStrategy: PwaService::CacheFirst)]
     public function about(): array
     {
         return [];
