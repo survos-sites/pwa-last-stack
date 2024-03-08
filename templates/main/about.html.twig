@@ -4,6 +4,12 @@
 
 {% block body %}
 
+    {% set url = absolute_url(path('app_homepage')) %}
+    <a href="{{ url }}">
+    <img src="{{ qr_code_url(url) }}" alt="{{ url }}" title="{{ url }}"/>
+        <br />{{ url }}
+    </a>
+
     {% apply markdown_to_html %}
 
 This application is based on SymfonyCast's LAST stack series, with the following enhancements.
