@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Offline' %}
+
+{% block body %}
+
+This page is offline.  If you are the developer and would like to cache it,
+
+<pre>
+    serviceworker:
+        enabled: true
+        src: "sw.js"
+        skip_waiting: true
+        workbox:
+            page_cache:
+                urls:
+                    - {path: "{{ app.request.get('_route')}}", params: {{ app.request.get('_route_parameters')|json_encode }}}
+
+</pre>
+
+{% endblock %}
+

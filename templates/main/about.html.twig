@@ -6,26 +6,27 @@
 
     {% set url = absolute_url(path('app_homepage')) %}
     <a href="{{ url }}">
-    <img src="{{ qr_code_url(url) }}" alt="{{ url }}" title="{{ url }}"/>
-        <br />{{ url }}
+        <img src="{{ qr_code_url(url) }}" alt="{{ url }}" title="{{ url }}"/>
+        <br/>{{ url }}
     </a>
 
-    {% apply markdown_to_html %}
+<div>
+    This application is based on SymfonyCast's LAST stack series, with the following enhancements.
 
-This application is based on SymfonyCast's LAST stack series, with the following enhancements.
-
-* The planets come from https://github.com/Lazzaro83/Solar-System/blob/master/planets.json, so the data is real.
-* The application now runs as a PWA thanks to spomky-labs/pwa-bundle and survos/pwa-extra-bundle.
-
-Credits
-
-In order to make generating icons easier, it's better to use a SVG
-
-    @todo: use ux-icons!
-
-    https://uxwing.com/space-planet-icon/
-
-
-{% endapply %}
+</div>
+    {# does tailwind remove all formatting, even the basic browser styles??? #}
+    <ul>
+        <li>
+            The planets come from https://github.com/Lazzaro83/Solar-System/blob/master/planets.json, so the data is real.
+        </li>
+        <li>
+            Lightyears from earth doesn't make sense, as the planets have different orbits.  An interesting exercise would be caculating
+            the distance a planet is from the earth, and adding that to the voyage information.  The average distance a planet is from the sun is
+            a measure that doesn't fluxuate.
+        </li>
+        <li>
+            Most importantly, the application now runs as a PWA thanks to spomky-labs/pwa-bundle and survos/pwa-extra-bundle.
+        </li>
+    </ul>
 {% endblock %}
 

@@ -12,6 +12,10 @@
             "sync-broadcast": {
                 "enabled": true,
                 "fetch": "eager"
+            },
+            "prefetch-on-demand": {
+                "enabled": true,
+                "fetch": "eager"
             }
         },
         "@survos/pwa-extra-bundle": {

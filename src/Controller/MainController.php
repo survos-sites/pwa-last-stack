@@ -48,10 +48,19 @@ class MainController extends AbstractController
     #[Route('/about', name: 'app_about')]
     #[Template('main/about.html.twig')]
     #[PwaExtra(cacheStrategy: PwaService::CacheFirst)]
-    public function about(): array
+    public function about(PwaService $pwaService): array
     {
-        return [];
+        return [
+            'cacheInfo' => $pwaService->getCacheInfo()
+        ];
     }
 
+    #[Route('/offline', name: 'app_offline_page')]
+    #[Template('main/offline.html.twig')]
+    public function offline(): array
+    {
+        return [
+        ];
+    }
 
 }

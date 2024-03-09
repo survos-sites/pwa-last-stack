@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "995a768fd2f57e32fb7c073dbb205aba",
+    "content-hash": "f853cc08565c18a1b7b28350e5672b55",
     "packages": [
         {
             "name": "babdev/pagerfanta-bundle",
@@ -4410,12 +4410,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Spomky-Labs/pwa-bundle.git",
-                "reference": "ad5cc0e84b8959b5c2312407a5576099efd30b55"
+                "reference": "d0515837fca769e4cad409b667d430f043950762"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Spomky-Labs/pwa-bundle/zipball/ad5cc0e84b8959b5c2312407a5576099efd30b55",
-                "reference": "ad5cc0e84b8959b5c2312407a5576099efd30b55",
+                "url": "https://api.github.com/repos/Spomky-Labs/pwa-bundle/zipball/d0515837fca769e4cad409b667d430f043950762",
+                "reference": "d0515837fca769e4cad409b667d430f043950762",
                 "shasum": ""
             },
             "require": {
@@ -4511,11 +4511,11 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2024-03-07T20:31:48+00:00"
+            "time": "2024-03-09T08:31:33+00:00"
         },
         {
             "name": "survos/core-bundle",
-            "version": "1.5.178",
+            "version": "1.5.181",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/SurvosCoreBundle.git",
@@ -4591,7 +4591,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/SurvosCoreBundle/issues",
-                "source": "https://github.com/survos/SurvosCoreBundle/tree/1.5.178"
+                "source": "https://github.com/survos/SurvosCoreBundle/tree/1.5.181"
             },
             "funding": [
                 {
@@ -4603,22 +4603,22 @@
         },
         {
             "name": "survos/pwa-extra-bundle",
-            "version": "1.5.178",
+            "version": "1.5.181",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/SurvosPwaExtraBundle.git",
-                "reference": "6a5f01ade34bf21a457acb427e2aacf7e245db36"
+                "reference": "ba3645f0bf4b109ea0dce8efa5e6ef66c8c0c3d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/survos/SurvosPwaExtraBundle/zipball/6a5f01ade34bf21a457acb427e2aacf7e245db36",
-                "reference": "6a5f01ade34bf21a457acb427e2aacf7e245db36",
+                "url": "https://api.github.com/repos/survos/SurvosPwaExtraBundle/zipball/ba3645f0bf4b109ea0dce8efa5e6ef66c8c0c3d7",
+                "reference": "ba3645f0bf4b109ea0dce8efa5e6ef66c8c0c3d7",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.1",
                 "spomky-labs/pwa-bundle": "^1.1",
-                "survos/core-bundle": "^1.5.178",
+                "survos/core-bundle": "^1.5.181",
                 "symfony/asset-mapper": "^6.4 || ^7.0",
                 "symfony/config": "^6.4 || ^7.0",
                 "symfony/dependency-injection": "^6.4 || ^7.0",
@@ -4652,7 +4652,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/SurvosPwaExtraBundle/issues",
-                "source": "https://github.com/survos/SurvosPwaExtraBundle/tree/1.5.178"
+                "source": "https://github.com/survos/SurvosPwaExtraBundle/tree/1.5.181"
             },
             "funding": [
                 {
@@ -4660,7 +4660,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-03-07T18:00:24+00:00"
+            "time": "2024-03-09T14:29:46+00:00"
         },
         {
             "name": "symfony/asset",
@@ -9971,6 +9971,73 @@
             ],
             "support": {
                 "source": "https://github.com/twigphp/markdown-extra/tree/v3.8.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/twig/twig",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2023-11-21T14:02:01+00:00"
+        },
+        {
+            "name": "twig/string-extra",
+            "version": "v3.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twigphp/string-extra.git",
+                "reference": "b0c9037d96baff79abe368dc092a59b726517548"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twigphp/string-extra/zipball/b0c9037d96baff79abe368dc092a59b726517548",
+                "reference": "b0c9037d96baff79abe368dc092a59b726517548",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.5",
+                "symfony/string": "^5.4|^6.0|^7.0",
+                "symfony/translation-contracts": "^1.1|^2|^3",
+                "twig/twig": "^3.0"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "^6.4|^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Twig\\Extra\\String\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "A Twig extension for Symfony String",
+            "homepage": "https://twig.symfony.com",
+            "keywords": [
+                "html",
+                "string",
+                "twig",
+                "unicode"
+            ],
+            "support": {
+                "source": "https://github.com/twigphp/string-extra/tree/v3.8.0"
             },
             "funding": [
                 {
