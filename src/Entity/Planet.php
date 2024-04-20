@@ -10,7 +10,11 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints\GreaterThanOrEqual;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
+use Webfactory\Bundle\PolyglotBundle\Attribute as Polyglot;
+use Webfactory\Bundle\PolyglotBundle\TranslatableInterface;
+
 #[ORM\Entity(repositoryClass: PlanetRepository::class)]
+#[Polyglot\Locale(primary: "en_US")]
 class Planet
 {
     #[ORM\Id]
@@ -23,8 +27,13 @@ class Planet
         return $this;
     }
 
+    /**
+     * @var TranslatableInterface<string>
+     */
     #[ORM\Column(length: 255)]
     #[NotBlank]
+//    #[Polyglot\Translatable]
+//    #[ORM\Column(type: 'translatable_string')]
     private ?string $name = null;
 
     #[ORM\Column(type: Types::TEXT)]
@@ -44,6 +53,7 @@ class Planet
     private bool $isInMilkyWay = true;
 
     #[ORM\OneToMany(mappedBy: 'planet', targetEntity: Voyage::class, orphanRemoval: true)]
+    #[Polyglot\TranslationCollection]
     private Collection $voyages;
 
     public function __construct()
@@ -58,7 +68,7 @@ class Planet
 
     public function getName(): ?string
     {
-        return $this->name;
+        return $this->name; // ->translate();
     }
 
     public function setName(?string $name): static
