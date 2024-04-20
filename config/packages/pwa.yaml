@@ -35,18 +35,19 @@ pwa:
         src: "sw.js"
         skip_waiting: true
         workbox:
-            page_cache:
-                urls:
-                    - {path: "app_planet_show", params: {id: 1}}
-                    - {path: "app_planet_show", params: {id: 2}}
-#                    - {path: "app_planet_show", params: {id: 3}}
-#                    - {path: "app_planet_show", params: {id: 4}}
-#                    - {path: "app_planet_show", params: {id: 5}}
-                    - 'app_homepage'
-                    - 'app_offline_page'
-                    - 'app_voyage_index'
-                    - 'app_planet_index'
-#                    - 'app_about'
+            resource_caches:
+#            page_cache:
+#                urls:
+#                    - {path: "app_planet_show", params: {id: 1}}
+#                    - {path: "app_planet_show", params: {id: 2}}
+##                    - {path: "app_planet_show", params: {id: 3}}
+##                    - {path: "app_planet_show", params: {id: 4}}
+##                    - {path: "app_planet_show", params: {id: 5}}
+#                    - 'app_homepage'
+#                    - 'app_offline_page'
+#                    - 'app_voyage_index'
+#                    - 'app_planet_index'
+##                    - 'app_about'
             offline_fallback:
                 page: 'app_offline_page'
 #                page: 'app_offline_page'
