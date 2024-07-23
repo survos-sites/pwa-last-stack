@@ -2,10 +2,11 @@ import * as Turbo from '@hotwired/turbo';
 import './bootstrap.js';
 import './styles/app.css';
 import alienGreeting from './lib/alien-greeting.js';
+import 'swiper/swiper.css';
 import { shouldPerformTransition, performTransition } from 'turbo-view-transitions';
 
 //Turbo.session.drive = false;
-alienGreeting('Give us all your candy!', false);
+alienGreeting('Give us all your candy?', false);
 
 let skipNextRenderTransition = false;
 document.addEventListener('turbo:before-render', (event) => {

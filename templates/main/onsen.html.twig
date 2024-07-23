@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+    <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+
+    <script type="module">
+        document.addEventListener('init', function(event) {
+            var page = event.target;
+
+            if (page.id === 'page1') {
+                page.querySelector('#push-button').onclick = function() {
+                    document.querySelector('#myNavigator').pushPage('page2.html', {data: {title: 'Page 2'}});
+                };
+            } else if (page.id === 'page2') {
+                page.querySelector('ons-toolbar .center').innerHTML = page.data.title;
+            }
+        });
+    </script>
+    {{ pwa() }}
+</head>
+<body>
+
+<ons-page>
+<ons-navigator swipeable id="myNavigator" page="x.html"></ons-navigator>
+
+<template id="x.html">
+    <ons-page>
+        <ons-toolbar>
+            <div class="left">
+                <ons-toolbar-button onclick="prev()">
+                    <ons-icon icon="md-chevron-left"></ons-icon>
+                </ons-toolbar-button>
+            </div>
+            <div class="center">Carousel</div>
+            <div class="right">
+                <ons-toolbar-button onclick="next()">
+                    <ons-icon icon="md-chevron-right"></ons-icon>
+                </ons-toolbar-button>
+            </div>
+        </ons-toolbar>
+
+        <ons-carousel fullscreen swipeable auto-scroll overscrollable id="carousel">
+            {% for planet in planets %}
+            <ons-carousel-item style="background-color: #085078;">
+                    <div style="text-align: center; font-size: 30px; margin-top: 20px; color: #fff;">
+                        {{ planet.name }}
+                    </div>
+            </ons-carousel-item>
+            {% endfor %}
+            <ons-carousel-item style="background-color: #373B44;">
+                <div style="text-align: center; font-size: 30px; margin-top: 20px; color: #fff;">
+                    DARK
+                </div>
+            </ons-carousel-item>
+            <ons-carousel-item style="background-color: #D38312;">
+                <div style="text-align: center; font-size: 30px; margin-top: 20px; color: #fff;">
+                    ORANGE
+                </div>
+            </ons-carousel-item>
+        </ons-carousel>
+    </ons-page>
+</template>
+
+<template id="page1.html">
+    <ons-page id="page1">
+        <ons-toolbar>
+            <div class="center">Page 1</div>
+        </ons-toolbar>
+
+        <p>This is the first page.</p>
+
+        <ons-button id="push-button">Push page</ons-button>
+    </ons-page>
+</template>
+
+<template id="page2.html">
+    <ons-page id="page2">
+        <ons-toolbar>
+            <div class="left"><ons-back-button>Page 1</ons-back-button></div>
+            <div class="center"></div>
+        </ons-toolbar>
+
+        <p>This is the second page.</p>
+    </ons-page>
+</template>
+
+</body>
+</html>

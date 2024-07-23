@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Swiper{% endblock %}
+
+{% block body %}
+    <div data-controller="carousel"
+         class="swiper-container">
+        <div class="swiper-wrapper">
+            {% for planet in planets %}
+                <div class="swiper-slide">
+                    {{ planet.description }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
+

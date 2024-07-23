@@ -89,4 +89,20 @@ return [
     '@babel/runtime/helpers/esm/defineProperty' => [
         'version' => '7.23.8',
     ],
+    'stimulus-carousel' => [
+        'version' => '5.0.1',
+    ],
+    'swiper/bundle' => [
+        'version' => '8.4.7',
+    ],
+    'ssr-window' => [
+        'version' => '4.0.2',
+    ],
+    'dom7' => [
+        'version' => '4.0.6',
+    ],
+    'swiper/swiper.css' => [
+        'version' => '11.0.7',
+        'type' => 'css',
+    ],
 ];

@@ -45,6 +45,24 @@ class MainController extends AbstractController
         ]);
     }
 
+    #[Route('/swiper', name: 'app_swiper')]
+    #[Template('main/swiper.html.twig')]
+    #[PwaExtra(cacheStrategy: PwaService::CacheFirst)]
+    public function swiper(PlanetRepository $planetRepository): array
+    {
+        return ['planets' => $planetRepository->findAll()];
+    }
+
+
+    #[Route('/onsen', name: 'app_onsen')]
+    #[Template('main/onsen.html.twig')]
+    #[PwaExtra(cacheStrategy: PwaService::CacheFirst)]
+    public function onsen(PlanetRepository $planetRepository): array
+    {
+        return ['planets' => $planetRepository->findAll()];
+    }
+
+
     #[Route('/about', name: 'app_about')]
     #[Template('main/about.html.twig')]
     #[PwaExtra(cacheStrategy: PwaService::CacheFirst)]
