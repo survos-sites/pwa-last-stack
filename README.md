@@ -1,6 +1,10 @@
 # Last Stack PWA
 
-SymfonyCasts LAST stack app, as a PWA
+SymfonyCasts LAST stack app, as a PWA.
+
+Also, random planets doesn's makes sense, as it can create duplicates.  Instead, use [real planet data](https://raw.githubusercontent.com/Lazzaro83/Solar-System/master/planets.json)
+
+@todo: add some authentication so that edit/delete buttons aren't public.
 
 # 30 Days with LAST Stack
 
