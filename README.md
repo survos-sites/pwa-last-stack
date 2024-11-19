@@ -2,7 +2,7 @@
 
 SymfonyCasts LAST stack app, as a PWA.
 
-Also, random planets doesn's makes sense, as it can create duplicates.  Instead, use [real planet data](https://raw.githubusercontent.com/Lazzaro83/Solar-System/master/planets.json)
+Also, random planets doesn't make sense, as it can create duplicates.  Instead, use [real planet data](https://raw.githubusercontent.com/Lazzaro83/Solar-System/master/planets.json)
 
 @todo: add some authentication so that edit/delete buttons aren't public.
 
@@ -71,7 +71,7 @@ Then, to start the web server, open a terminal, move into the
 project, and run:
 
 ```
-symfony serve
+symfony serve -d
 ```
 
 (If this is your first time using this command, you may see an

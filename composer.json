@@ -1,24 +1,25 @@
 {
     "type": "project",
     "license": "proprietary",
-    "minimum-stability": "dev",
+    "minimum-stability": "RC",
     "prefer-stable": true,
     "require": {
         "php": ">=8.2",
         "ext-ctype": "*",
         "ext-gd": "*",
+        "ext-intl": "*",
         "ext-iconv": "*",
         "ext-imagick": "*",
         "babdev/pagerfanta-bundle": "^4.0",
         "doctrine/doctrine-bundle": "^2.10",
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.16",
-        "endroid/qr-code-bundle": "^5.0",
+        "endroid/qr-code-bundle": "^6.0",
         "knplabs/knp-time-bundle": "dev-main",
         "league/commonmark": "^2.4",
         "pagerfanta/doctrine-orm-adapter": "^4.0",
         "pagerfanta/twig": "^4.0",
-        "sentry/sentry-symfony": "^4.14",
+        "sentry/sentry-symfony": "^5.0",
         "spomky-labs/pwa-bundle": "^1.2",
         "survos/pwa-extra-bundle": "^1.5.175",
         "symfony/asset": "^7.0",
@@ -98,7 +99,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": true,
-            "require": "^7.0",
+            "require": "^7.2",
             "docker": true
         }
     },
