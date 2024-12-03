@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Planet;
 use App\Entity\Voyage;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -25,9 +26,11 @@ class VoyageType extends AbstractType
                     'data-controller' => 'datepicker',
                 ]
             ])
-            ->add('planet', null, [
+            ->add('planet', EntityType::class, [
                 'choice_label' => 'name',
                 'placeholder' => 'Choose a planet',
+                'required' => true,
+                'class' => Planet::class
                 //'autocomplete' => true,
             ])
             ->addDependent('wormholeUpgrade', ['planet'], function (DependentField $field, ?Planet $planet) {
