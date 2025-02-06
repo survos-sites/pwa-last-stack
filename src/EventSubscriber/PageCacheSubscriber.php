@@ -11,7 +11,7 @@ use Presta\SitemapBundle\Sitemap\Url\UrlConcrete;
 
 class PageCacheSubscriber implements EventSubscriberInterface
 {
-    public function __construct(private PlanetRepository $blogPostRepository)
+    public function __construct(private readonly PlanetRepository $blogPostRepository)
     {
     }
 

@@ -13,7 +13,7 @@ class VoyageControllerTest extends AppPantherTestCase
     use ResetDatabase;
     use Factories;
 
-    public function testCreateVoyage()
+    public function testCreateVoyage(): void
     {
         PlanetFactory::createOne([
             'name' => 'Earth',

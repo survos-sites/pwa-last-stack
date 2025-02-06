@@ -29,7 +29,7 @@ use Zenstruck\Foundry\RepositoryProxy;
  */
 final class PlanetFactory extends ModelFactory
 {
-    public const PLANET_NAMES = [
+    public const array PLANET_NAMES = [
         'Mercury',
         'Venus',
         'Earth',
@@ -40,7 +40,7 @@ final class PlanetFactory extends ModelFactory
         'Neptune',
     ];
 
-    public const OTHER_PLANET_NAMES = [
+    public const array OTHER_PLANET_NAMES = [
         'Proxima Centauri b',
         'Kepler-186f',
         'Kepler-62e',
@@ -75,6 +75,7 @@ final class PlanetFactory extends ModelFactory
     /**
      * @see https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#initialization
      */
+    #[\Override]
     protected function initialize(): self
     {
         return $this

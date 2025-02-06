@@ -10,7 +10,7 @@ class ButtonTest extends KernelTestCase
 {
     use InteractsWithTwigComponents;
 
-    public function testButtonRendersWithVariants()
+    public function testButtonRendersWithVariants(): void
     {
         $component = $this->mountTwigComponent('Button', [
             'variant' => 'success',

@@ -117,9 +117,9 @@ class VoyageController extends AbstractController
         return $this->redirectToRoute('app_voyage_index', [], Response::HTTP_SEE_OTHER);
     }
 
-    private function createVoyageForm(Voyage $voyage = null): FormInterface
+    private function createVoyageForm(?Voyage $voyage = null): FormInterface
     {
-        $voyage = $voyage ?? new Voyage();
+        $voyage ??= new Voyage();
 
         return $this->createForm(VoyageType::class, $voyage, [
             'action' => $voyage->getId() ? $this->generateUrl('app_voyage_edit', ['id' => $voyage->getId()]) : $this->generateUrl('app_voyage_new'),

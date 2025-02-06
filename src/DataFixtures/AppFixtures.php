@@ -20,7 +20,7 @@ class AppFixtures extends Fixture
             // store them in /assets/images
             $imageDir = __DIR__ . '/../../assets/images/';
             $url = $data->image;
-            $imageName = pathinfo($url, PATHINFO_BASENAME);
+            $imageName = pathinfo((string) $url, PATHINFO_BASENAME);
             if (!file_exists($imagePath = $imageDir . $imageName)) {
                 file_put_contents($imagePath, file_get_contents($url));
             }

@@ -4,12 +4,12 @@ namespace App\Factory;
 
 use App\Entity\Voyage;
 use App\Repository\VoyageRepository;
-use Zenstruck\Foundry\ModelFactory;
+use Zenstruck\Foundry\ObjectFactory;
 use Zenstruck\Foundry\Proxy;
 use Zenstruck\Foundry\RepositoryProxy;
 
 /**
- * @extends ModelFactory<Voyage>
+ * @extends ObjectFactory<Voyage>
  *
  * @method        Voyage|Proxy                     create(array|callable $attributes = [])
  * @method static Voyage|Proxy                     createOne(array $attributes = [])
@@ -56,6 +56,7 @@ final class VoyageFactory extends ModelFactory
     /**
      * @see https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#initialization
      */
+    #[\Override]
     protected function initialize(): self
     {
         return $this

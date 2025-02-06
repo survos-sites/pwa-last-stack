@@ -14,7 +14,7 @@ class SearchSiteTest extends KernelTestCase
     use ResetDatabase;
     use Factories;
 
-    public function testCanRenderAndReload()
+    public function testCanRenderAndReload(): void
     {
         VoyageFactory::createMany(5, [
             'purpose' => 'first 5 voyages',

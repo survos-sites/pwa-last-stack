@@ -24,7 +24,7 @@ class MainController extends AbstractController
         #[MapQueryParameter] int $page = 1,
         #[MapQueryParameter] string $sort = 'leaveAt',
         #[MapQueryParameter] string $sortDirection = 'ASC',
-        #[MapQueryParameter] string $query = null,
+        #[MapQueryParameter] ?string $query = null,
         #[MapQueryParameter('planets', \FILTER_VALIDATE_INT)] array $searchPlanets = [],
     ): Response
     {

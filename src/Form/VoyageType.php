@@ -33,7 +33,7 @@ class VoyageType extends AbstractType
                 'class' => Planet::class
                 //'autocomplete' => true,
             ])
-            ->addDependent('wormholeUpgrade', ['planet'], function (DependentField $field, ?Planet $planet) {
+            ->addDependent('wormholeUpgrade', ['planet'], function (DependentField $field, ?Planet $planet): void {
                 if (!$planet || $planet->isInMilkyWay()) {
                     return;
                 }
