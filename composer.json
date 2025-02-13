@@ -17,6 +17,7 @@
         "endroid/qr-code-bundle": "^6.0",
         "knplabs/knp-time-bundle": "dev-main",
         "league/commonmark": "^2.4",
+        "nette/php-generator": "^4.1",
         "pagerfanta/doctrine-orm-adapter": "^4.0",
         "pagerfanta/twig": "^4.0",
         "sentry/sentry-symfony": "^5.0",
