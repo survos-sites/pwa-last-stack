@@ -4,12 +4,12 @@ namespace App\Factory;
 
 use App\Entity\Planet;
 use App\Repository\PlanetRepository;
-use Zenstruck\Foundry\ModelFactory;
-use Zenstruck\Foundry\Proxy;
-use Zenstruck\Foundry\RepositoryProxy;
+use Zenstruck\Foundry\ObjectFactory;
+use Zenstruck\Foundry\Persistence\Proxy;
+use Zenstruck\Foundry\Persistence\ProxyRepositoryDecorator;
 
 /**
- * @extends ModelFactory<Planet>
+ * @extends ObjectFactory<Planet>
  *
  * @method        Planet|Proxy                     create(array|callable $attributes = [])
  * @method static Planet|Proxy                     createOne(array $attributes = [])
@@ -19,7 +19,7 @@ use Zenstruck\Foundry\RepositoryProxy;
  * @method static Planet|Proxy                     last(string $sortedField = 'id')
  * @method static Planet|Proxy                     random(array $attributes = [])
  * @method static Planet|Proxy                     randomOrCreate(array $attributes = [])
- * @method static PlanetRepository|RepositoryProxy repository()
+ * @method static PlanetRepository|ProxyRepositoryDecorator repository()
  * @method static Planet[]|Proxy[]                 all()
  * @method static Planet[]|Proxy[]                 createMany(int $number, array|callable $attributes = [])
  * @method static Planet[]|Proxy[]                 createSequence(iterable|callable $sequence)
@@ -27,7 +27,7 @@ use Zenstruck\Foundry\RepositoryProxy;
  * @method static Planet[]|Proxy[]                 randomRange(int $min, int $max, array $attributes = [])
  * @method static Planet[]|Proxy[]                 randomSet(int $number, array $attributes = [])
  */
-final class PlanetFactory extends ModelFactory
+final class PlanetFactory extends ObjectFactory
 {
     public const array PLANET_NAMES = [
         'Mercury',
@@ -62,7 +62,7 @@ final class PlanetFactory extends ModelFactory
      *
      * @todo add your default values here
      */
-    protected function getDefaults(): array
+    protected function defaults(): array
     {
         return [
             'description' => self::faker()->text(),
@@ -75,16 +75,17 @@ final class PlanetFactory extends ModelFactory
     /**
      * @see https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#initialization
      */
-    #[\Override]
-    protected function initialize(): self
+
+    public static function class(): string
+    {
+        return Planet::class;
+    }
+
+    protected function initialize(): static
     {
         return $this
             // ->afterInstantiate(function(Planet $planet): void {})
-        ;
-    }
+            ;
 
-    protected static function getClass(): string
-    {
-        return Planet::class;
     }
 }

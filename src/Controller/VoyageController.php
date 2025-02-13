@@ -13,6 +13,7 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/voyage')]
 class VoyageController extends AbstractController
@@ -27,6 +28,7 @@ class VoyageController extends AbstractController
     }
 
     #[Route('/new', name: 'app_voyage_new', methods: ['GET', 'POST'])]
+    #[IsGranted('ROLE_ADMIN')]
     #[PwaExtra(cacheStrategy: PwaService::NetworkOnly)]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -67,6 +69,7 @@ class VoyageController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_voyage_edit', methods: ['GET', 'POST'])]
+    #[IsGranted('ROLE_ADMIN')]
     #[PwaExtra(cacheStrategy: PwaService::NetworkFirst)]
     public function edit(Request $request, Voyage $voyage, EntityManagerInterface $entityManager): Response
     {
@@ -95,6 +98,7 @@ class VoyageController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_voyage_delete', methods: ['POST'])]
+    #[IsGranted('ROLE_ADMIN')]
     #[PwaExtra(cacheStrategy: PwaService::NetworkOnly)]
     public function delete(Request $request, Voyage $voyage, EntityManagerInterface $entityManager): Response
     {

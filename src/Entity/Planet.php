@@ -10,11 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints\GreaterThanOrEqual;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-use Webfactory\Bundle\PolyglotBundle\Attribute as Polyglot;
-use Webfactory\Bundle\PolyglotBundle\TranslatableInterface;
-
 #[ORM\Entity(repositoryClass: PlanetRepository::class)]
-#[Polyglot\Locale(primary: "en_US")]
 class Planet
 {
     #[ORM\Id]
