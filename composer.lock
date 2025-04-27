@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "df8d375c59457fc75983d19ccfa54de2",
+    "content-hash": "583efe8339916eb8cc7eafa7b8dd3eaa",
     "packages": [
         {
             "name": "babdev/pagerfanta-bundle",
@@ -3774,16 +3774,16 @@
         },
         {
             "name": "survos/sais-bundle",
-            "version": "1.5.529",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/SurvosSaisBundle.git",
-                "reference": "cb5577cb548872b6b09ef82602f2ac0a11aff1ee"
+                "reference": "c6ce47005fdfb66786c5fdc03509a9b3206226c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/survos/SurvosSaisBundle/zipball/cb5577cb548872b6b09ef82602f2ac0a11aff1ee",
-                "reference": "cb5577cb548872b6b09ef82602f2ac0a11aff1ee",
+                "url": "https://api.github.com/repos/survos/SurvosSaisBundle/zipball/c6ce47005fdfb66786c5fdc03509a9b3206226c8",
+                "reference": "c6ce47005fdfb66786c5fdc03509a9b3206226c8",
                 "shasum": ""
             },
             "require": {
@@ -3802,6 +3802,7 @@
                 "symfony/twig-bundle": "^6.4 || ^7.1",
                 "symfony/var-dumper": "^6.4 || ^7.1"
             },
+            "default-branch": true,
             "type": "symfony-bundle",
             "autoload": {
                 "psr-4": {
@@ -3821,7 +3822,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/SurvosSaisBundle/issues",
-                "source": "https://github.com/survos/SurvosSaisBundle/tree/1.5.529"
+                "source": "https://github.com/survos/SurvosSaisBundle/tree/main"
             },
             "funding": [
                 {
@@ -3829,7 +3830,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-02-24T18:22:00+00:00"
+            "time": "2025-04-27T13:26:37+00:00"
         },
         {
             "name": "symfony/asset",
@@ -10727,16 +10728,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.1.12",
+            "version": "2.1.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "96dde49e967c0c22812bcfa7bda4ff82c09f3b0c"
+                "reference": "e55e03e6d4ac49cd1240907e5b08e5cd378572a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/96dde49e967c0c22812bcfa7bda4ff82c09f3b0c",
-                "reference": "96dde49e967c0c22812bcfa7bda4ff82c09f3b0c",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/e55e03e6d4ac49cd1240907e5b08e5cd378572a9",
+                "reference": "e55e03e6d4ac49cd1240907e5b08e5cd378572a9",
                 "shasum": ""
             },
             "require": {
@@ -10781,7 +10782,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-04-16T13:19:18+00:00"
+            "time": "2025-04-27T12:28:25+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -13101,6 +13102,7 @@
         "knplabs/knp-time-bundle": 20,
         "pierstoval/smoke-testing": 20,
         "spomky-labs/pwa-bundle": 20,
+        "survos/sais-bundle": 20,
         "symfony/panther": 20,
         "symfony/phpunit-bridge": 20,
         "symfonycasts/dynamic-forms": 20,

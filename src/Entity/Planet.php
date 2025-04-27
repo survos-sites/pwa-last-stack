@@ -56,6 +56,15 @@ class Planet
     #[ORM\Column(nullable: true)]
     private ?array $resized = null;
 
+    #[ORM\Column(length: 32, nullable: true)]
+    private ?string $imageCode = null;
+
+    #[ORM\Column(length: 48, nullable: true)]
+    private ?string $imageBlur = null;
+
+    #[ORM\Column(length: 48, nullable: true)]
+    private ?string $imagePath = null;
+
     public function __construct()
     {
         $this->voyages = new ArrayCollection();
@@ -169,6 +178,42 @@ class Planet
     public function setResized(?array $resized): static
     {
         $this->resized = $resized;
+
+        return $this;
+    }
+
+    public function getImageCode(): ?string
+    {
+        return $this->imageCode;
+    }
+
+    public function setImageCode(?string $imageCode): static
+    {
+        $this->imageCode = $imageCode;
+
+        return $this;
+    }
+
+    public function getImageBlur(): ?string
+    {
+        return $this->imageBlur;
+    }
+
+    public function setImageBlur(?string $imageBlur): static
+    {
+        $this->imageBlur = $imageBlur;
+
+        return $this;
+    }
+
+    public function getImagePath(): ?string
+    {
+        return $this->imagePath;
+    }
+
+    public function setImagePath(?string $imagePath): static
+    {
+        $this->imagePath = $imagePath;
 
         return $this;
     }

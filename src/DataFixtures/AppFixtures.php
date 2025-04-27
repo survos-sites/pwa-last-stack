@@ -7,15 +7,20 @@ use App\Factory\PlanetFactory;
 use App\Factory\VoyageFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Psr\Log\LoggerInterface;
 use Survos\SaisBundle\Model\AccountSetup;
 use Survos\SaisBundle\Model\ProcessPayload;
 use Survos\SaisBundle\Service\SaisClientService;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
 
 class AppFixtures extends Fixture
 {
     const SAIS_CLIENT_CODE='pwa-last-stack';
     public function __construct(
         private SaisClientService $saisClientService,
+        private LoggerInterface $logger,
+        #[Autowire('%env(SAIS_ROOT)%')] private string $saisRoot,
+
     )
     {
     }
@@ -33,9 +38,10 @@ class AppFixtures extends Fixture
             $imageDir = __DIR__ . '/../../assets/images/';
             $url = $data->image;
             // we could also dispatch all of them in one call
-            $result = $this->saisClientService->dispatchProcess(new ProcessPayload(self::SAIS_CLIENT_CODE, [
+            $result = $this->saisClientService->dispatchProcess(new ProcessPayload($this->saisRoot, [
                 $url
             ]));
+            $this->logger->info("Path " . $result[0]['path']);
             $imageName = pathinfo((string) $url, PATHINFO_BASENAME);
             if (!file_exists($imagePath = $imageDir . $imageName)) {
                 file_put_contents($imagePath, file_get_contents($url));
@@ -47,8 +53,15 @@ class AppFixtures extends Fixture
                 ->setLightYearsFromEarth($data->distance)
                 ->setImageFilename($imageName)
                 ;
+
+            $data = $result[0];
+//            dd($result[0], SaisClientService::calculateCode($url, self::SAIS_CLIENT_CODE));
             // since we're just sending one in, we can do this.  No callback, because this is in fixtures.
-            $planet->setResized($result[0]['resized']);
+            $planet
+                ->setImageBlur($data['blur'])
+                ->setImageCode($data['code'])
+                ->setImagePath($data['path'])
+                ->setResized($result[0]['resized']);
             $manager->persist($planet);
             if ($planet->getName() <> 'Earth') {
                 $planets[] = $planet;
