@@ -9,13 +9,18 @@
     <ul>
 
         {% for planet in planets %}
+
             <li class="even:bg-gray-700 odd:bg-gray-600">
                 <h2 class="font-semibold text-lg mt-4">
                     <a
                             href="{{ path('app_planet_show', {'id': planet.id}) }}" class="text-blue-400 hover:text-blue-600">{{ planet.name }}</a>
                 </h2>
-
-                <p class="px-6 py-4">{{ planet.description }}</p>
+                <p class="px-6 py-4">
+                    {% if (planet.resized|default([]))|length %}
+                    <img src="{{ planet.resized.small }}" alt="{{ planet.name }} image" />
+                    {% endif %}
+                    {{ planet.description }}
+                </p>
 {#                <td class="px-6 py-4 whitespace-nowrap float-right">{{ planet.lightYearsFromEarth }}</td>#}
             </li>
         {% endfor %}

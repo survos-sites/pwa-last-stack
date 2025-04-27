@@ -53,6 +53,9 @@ class Planet
     #[Polyglot\TranslationCollection]
     private Collection $voyages;
 
+    #[ORM\Column(nullable: true)]
+    private ?array $resized = null;
+
     public function __construct()
     {
         $this->voyages = new ArrayCollection();
@@ -154,6 +157,18 @@ class Planet
                 $voyage->setPlanet(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getResized(): ?array
+    {
+        return $this->resized;
+    }
+
+    public function setResized(?array $resized): static
+    {
+        $this->resized = $resized;
 
         return $this;
     }

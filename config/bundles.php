@@ -29,4 +29,5 @@ return [
     Survos\CrawlerBundle\SurvosCrawlerBundle::class => ['all' => true],
     Pierstoval\SmokeTesting\SmokeTestingBundle::class => ['dev' => true, 'test' => true],
     Jawira\DoctrineDiagramBundle\DoctrineDiagramBundle::class => ['all' => true],
+    Survos\SaisBundle\SurvosSaisBundle::class => ['all' => true],
 ];

@@ -7,19 +7,35 @@ use App\Factory\PlanetFactory;
 use App\Factory\VoyageFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Survos\SaisBundle\Model\AccountSetup;
+use Survos\SaisBundle\Model\ProcessPayload;
+use Survos\SaisBundle\Service\SaisClientService;
 
 class AppFixtures extends Fixture
 {
+    const SAIS_CLIENT_CODE='pwa-last-stack';
+    public function __construct(
+        private SaisClientService $saisClientService,
+    )
+    {
+    }
+
     public function load(ObjectManager $manager): void
     {
         // https://raw.githubusercontent.com/Lazzaro83/Solar-System/master/planets.json
 
         $planets = [];
         $planetJson = json_decode(file_get_contents(__DIR__ . '/./planets.json'));
+        $this->saisClientService->accountSetup(new AccountSetup(self::SAIS_CLIENT_CODE, count($planetJson)));
+
         foreach ($planetJson as $data) {
             // store them in /assets/images
             $imageDir = __DIR__ . '/../../assets/images/';
             $url = $data->image;
+            // we could also dispatch all of them in one call
+            $result = $this->saisClientService->dispatchProcess(new ProcessPayload(self::SAIS_CLIENT_CODE, [
+                $url
+            ]));
             $imageName = pathinfo((string) $url, PATHINFO_BASENAME);
             if (!file_exists($imagePath = $imageDir . $imageName)) {
                 file_put_contents($imagePath, file_get_contents($url));
@@ -31,6 +47,8 @@ class AppFixtures extends Fixture
                 ->setLightYearsFromEarth($data->distance)
                 ->setImageFilename($imageName)
                 ;
+            // since we're just sending one in, we can do this.  No callback, because this is in fixtures.
+            $planet->setResized($result[0]['resized']);
             $manager->persist($planet);
             if ($planet->getName() <> 'Earth') {
                 $planets[] = $planet;

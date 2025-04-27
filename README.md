@@ -6,6 +6,10 @@ Also, random planets doesn't make sense, as it can create duplicates.  Instead, 
 
 @todo: add some authentication so that edit/delete buttons aren't public.
 
+## Survos Tools
+
+The images are resized using SAIS.  They are resized in AppFixtures, since there are so few images and we don't have a workflow for any other reason.  See pokemon or dummy for a more sophisticated approach to thumbnails.
+
 # 30 Days with LAST Stack
 
 Well hi there! This repository holds the code and script for the
