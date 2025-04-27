@@ -1,4 +1,4 @@
-<?php
+fdis<?php
 
 return [
     Symfony\Bundle\FrameworkBundle\FrameworkBundle::class => ['all' => true],
@@ -28,6 +28,6 @@ return [
     Sentry\SentryBundle\SentryBundle::class => ['prod' => true],
     Survos\CrawlerBundle\SurvosCrawlerBundle::class => ['all' => true],
     Pierstoval\SmokeTesting\SmokeTestingBundle::class => ['dev' => true, 'test' => true],
-    Jawira\DoctrineDiagramBundle\DoctrineDiagramBundle::class => ['all' => true],
+    Jawira\DoctrineDiagramBundle\DoctrineDiagramBundle::class => ['dev' => true],
     Survos\SaisBundle\SurvosSaisBundle::class => ['all' => true],
 ];
