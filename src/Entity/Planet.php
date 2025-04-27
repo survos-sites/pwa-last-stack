@@ -15,6 +15,7 @@ class Planet
 {
     #[ORM\Id]
     #[ORM\Column]
+    #[ORM\GeneratedValue] // only for testing in VoyageControllerTest
     private ?int $id = null;
 
     public function setId(?int $id): self

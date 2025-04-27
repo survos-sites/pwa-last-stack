@@ -16,6 +16,7 @@ class VoyageControllerTest extends AppPantherTestCase
     public function testCreateVoyage(): void
     {
         PlanetFactory::createOne([
+            'id' => 1,
             'name' => 'Earth',
         ]);
         VoyageFactory::createOne();

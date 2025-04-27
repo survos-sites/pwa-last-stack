@@ -29,6 +29,9 @@ composer install
 
 ### Database Setup
 
+![Database Diagram](assets/db.svg)
+
+
 The code comes with a `compose.yaml` file (for Docker) and we recommend using
 Docker to boot a database container. You will still have PHP installed
 locally, but you'll connect to a database inside Docker. This is optional,
